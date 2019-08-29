@@ -13,6 +13,34 @@
 		print 'Comillas simples = escríbame tal cual: $edad <br>';
 		echo "Esto lo admite echo :<br>";
 		echo $nombre, $edad;
+		MyFunction();
+		// MySecondFunction();
+		StaticValueIncrement();
+		StaticValueIncrement();
+		StaticValueIncrement();
+		StaticValueIncrement();
+
+	?>
+	
+	<?php
+		function MyFunction(){
+			global $nombre;
+			echo "Declarando una variable global " . $nombre . "<br>";
+			include ("Un_Archivo.php");
+		}
+
+		function StaticValueIncrement(){
+			static $TheVar = 0;
+			$TheVar++;
+			echo $TheVar . "<br>";
+		}
+
+		// Al llamar "Un_Archivo.php" mediante require e include, instancio 2 veces la función que hay dentro y se genera error
+		/*
+		function MySecondFunction(){
+			require ("Un_Archivo.php");
+		}
+		*/
 	?>
 </body>
 </html>
